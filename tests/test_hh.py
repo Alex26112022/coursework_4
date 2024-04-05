@@ -1,7 +1,6 @@
 import pytest
 import requests
 
-from config import vacancies_json, vacancies_json_test
 from src.load_hh import HH
 
 
@@ -22,6 +21,6 @@ def test_hh(monkeypatch):
 
     monkeypatch.setattr(requests, 'get', mock_get)
     test_request = HH()
-    test_request.load_vacancies('python developer', vacancies_json_test)
+    test_request.load_vacancies('python developer')
     assert len(test_request.get_vacancies()) == 40
     print(test_request)
