@@ -1,7 +1,7 @@
 import json
 
 from config import vacancies_json
-from src.vacansy import Vacancy
+from src.vacancy import Vacancy
 
 
 class ListVacancies:

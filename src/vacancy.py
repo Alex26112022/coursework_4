@@ -7,10 +7,10 @@ class Vacancy:
         self.company = company
         self.url = url
         if pay is None:
-            self.pay = 'не указана'
+            self.pay = 0
             self.pay_str = 'не указана'
         else:
-            self.pay = pay
+            self.pay = pay[0]
             if pay[1] is not None:
                 self.pay_str = f'От {pay[0]} до {pay[1]} {pay[2]}'
             else:
