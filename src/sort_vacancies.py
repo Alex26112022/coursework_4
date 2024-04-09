@@ -13,12 +13,17 @@ class SortVacancies:
         """ Сортирует вакансии по зарплате """
         self.all_vacancies.sort(reverse=True)
 
+    def sort_published(self):
+        """ Сортирует вакансии по дате публикации. """
+        self.all_vacancies.sort(key=lambda x: x.format_published(), reverse=True)
+
     def get_sort_vacancies(self):
         """ Возвращает отсортированный список вакансий. """
         return self.all_vacancies
 
 
 fff = SortVacancies(vacancies_json)
-fff.sort_pay()
+# fff.sort_pay()
+fff.sort_published()
 for el in fff.get_sort_vacancies():
     print(el)
