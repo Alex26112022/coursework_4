@@ -1,6 +1,4 @@
 import json
-
-from config import vacancies_json
 from src.vacancy import Vacancy
 
 
@@ -23,6 +21,7 @@ class ListVacancies:
             # print(vacancy, '\n')
             vacancy_id = vacancy.get("id")
             vacancy_title = vacancy.get("name")
+            vacancy_published = vacancy.get("published_at")
             vacancy_url = vacancy.get("alternate_url")
             company_name = vacancy.get("employer", {}).get("name")
             salary = vacancy.get("salary", {})
@@ -45,6 +44,7 @@ class ListVacancies:
                 employment = employment.get("name")
 
             self.all_vacancies.append(Vacancy(vacancy_id, vacancy_title,
+                                              vacancy_published,
                                               company_name, vacancy_url,
                                               salary, address, snippet,
                                               experience, employment))
