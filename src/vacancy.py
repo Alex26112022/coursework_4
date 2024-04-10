@@ -35,23 +35,23 @@ class Vacancy:
     def validator_pay(cls, pay, json_path):
         """ Валидирует и форматирует данные по зарплате. """
         if pay is None:
-            pay_ = 0
+            pay_min = 0
             pay_str_ = 'не указана'
         else:
             if pay[0] is None:
-                pay_ = 0
+                pay_min = 0
                 pay_str_ = f'до {pay[1]} {pay[2]}'
             else:
                 if pay[2] == 'RUR':
-                    pay_ = pay[0]
+                    pay_min = pay[0]
                 else:
                     valuta = converter(json_path, pay[2])
-                    pay_ = pay[0] * valuta[1] / valuta[0]
+                    pay_min = pay[0] * valuta[1] / valuta[0]
                 if pay[1] is not None:
                     pay_str_ = f'От {pay[0]} до {pay[1]} {pay[2]}'
                 else:
                     pay_str_ = f'От {pay[0]} {pay[2]}'
-        return pay_, pay_str_
+        return pay_min, pay_str_
 
     def format_published(self):
         """ Преобразует строковую дату в datetime. """
