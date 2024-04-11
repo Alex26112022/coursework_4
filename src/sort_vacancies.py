@@ -61,16 +61,3 @@ class SortVacancies:
     def get_sort_vacancies(self):
         """ Возвращает отсортированный список вакансий. """
         return self.all_vacancies
-
-
-fff = SortVacancies(vacancies_json)
-fff.sort_pay()
-# fff.sort_published()
-# fff.filter_address('москва')
-# fff.filter_experience('От 3 до 6 лет')
-# fff.filter_employment('Стажировка')
-# fff.filter_snippet('sql')
-fff.filter_pay(30000, 80000)
-print(len(fff.get_sort_vacancies()))
-for el in fff.get_sort_vacancies():
-    print(el)
