@@ -1,5 +1,4 @@
 from src.list_vacancies import ListVacancies
-from config import vacancies_json
 
 
 class SortVacancies:

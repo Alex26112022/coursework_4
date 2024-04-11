@@ -21,4 +21,4 @@ class VacancyJson:
         """ Записывает данные в Json-файл. """
         with open(path_json, 'w', encoding='utf-8') as file:
             json.dump(self.vacancies, file, indent=4)
-        print('Данные успешно записаны!')
+        print('Данные успешно записаны!\n')
