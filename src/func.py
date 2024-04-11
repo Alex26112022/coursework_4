@@ -76,5 +76,50 @@ def employment_input():
     return employment_dict.get(input_employment)
 
 
+def schedule_input():
+    """
+    Запрашивает у пользователя график работы и возвращает
+    соответствующий ключ.
+    """
+    schedule_dict = {'1': 'Полный день',
+                     '2': 'Сменный график',
+                     '3': 'Гибкий график',
+                     '4': 'Удаленная работа',
+                     '5': 'Вахтовый метод'}
+    input_schedule = input('Введите требуемый график работы:\n'
+                           '\t1 - Полный день\n\t2 - Сменный график\n'
+                           '\t3 - Гибкий график\n\t4 - Удаленная работа\n'
+                           '\t5 - Вахтовый метод\n')
+    if bool(input_schedule):
+        while input_schedule not in ['1', '2', '3', '4', '5'] and bool(
+                input_schedule):
+            input_schedule = input('Выберите один из пяти вариантов: '
+                                   '"1", "2", "3", "4", "5"; '
+                                   'или пропустите параметр:\n')
+    return schedule_dict.get(input_schedule)
+
+
+def pay_input():
+    """
+    Запрашивает у пользователя требуемую зарплату, валидирует данные
+    и возвращает в нужном формате.
+    """
+    pay_min = None
+    pay_max = None
+    input_pay = input('Введите через пробел минимальную и максимальную '
+                      'зарплату:\n').split()
+    if not bool(input_pay):
+        return None
+    else:
+        if input_pay[0].isdigit():
+            pay_min = float(input_pay[0])
+        if len(input_pay) >= 2 and input_pay[1].isdigit():
+            pay_max = float(input_pay[1])
+    if type(pay_min) is float and type(pay_max) is float:
+        if pay_max < pay_min:
+            pay_max = None
+    return pay_min, pay_max
+
+
 if __name__ == '__main__':
-    print(employment_input())
+    pass

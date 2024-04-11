@@ -7,7 +7,8 @@ class Vacancy:
     """ Класс экземпляра вакансии. """
 
     def __init__(self, id_, vacancy, published, company, url, pay, address,
-                 snippet, experience, employment, json_path=valuta_json):
+                 snippet, experience, employment,
+                 schedule, json_path=valuta_json):
         self.id_ = id_
         self.vacancy = vacancy
         self.published = published
@@ -31,6 +32,10 @@ class Vacancy:
             self.employment = 'не указан'
         else:
             self.employment = employment
+        if schedule is None:
+            self.schedule = 'не указан'
+        else:
+            self.schedule = schedule
 
     @classmethod
     def validator_pay(cls, pay, json_path):
@@ -77,4 +82,5 @@ class Vacancy:
                 f'Компания: {self.company}\nURL: {self.url}\n'
                 f'Зарплата: {self.pay_str}\nАдрес: {self.address}\n'
                 f'Требования: {self.snippet}\nОпыт: {self.experience}\n'
-                f'Тип занятости: {self.employment}\n')
+                f'Тип занятости: {self.employment}\n'
+                f'График работы: {self.schedule}\n')

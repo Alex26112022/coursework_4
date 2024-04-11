@@ -40,6 +40,14 @@ class SortVacancies:
                 filter_list.append(vacancy)
         self.all_vacancies = filter_list
 
+    def filter_schedule(self, expected_schedule):
+        """ Фильтрует список по графику работы. """
+        filter_list = []
+        for vacancy in self.all_vacancies:
+            if vacancy.schedule == expected_schedule:
+                filter_list.append(vacancy)
+        self.all_vacancies = filter_list
+
     def filter_snippet(self, expected_snippet: str):
         """ Фильтрует список по требуемым навыкам. """
         filter_list = []

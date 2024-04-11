@@ -17,5 +17,7 @@ def test_vacancy(create_vacancy_1, create_vacancy_2, create_vacancy_3):
     assert create_vacancy_3.snippet == 'не указаны'
     assert create_vacancy_3.experience == 'не указан'
     assert create_vacancy_3.employment == 'не указан'
+    assert create_vacancy_2.schedule == 'Удаленная работа'
+    assert create_vacancy_3.schedule == 'не указан'
     assert create_vacancy_2 > create_vacancy_1
 
