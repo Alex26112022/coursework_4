@@ -42,12 +42,15 @@ class ListVacancies:
             employment = vacancy.get("employment", {})
             if employment is not None:
                 employment = employment.get("name")
+            schedule = vacancy.get("schedule", {})
+            if schedule is not None:
+                schedule = schedule.get("name")
 
             self.all_vacancies.append(Vacancy(vacancy_id, vacancy_title,
                                               vacancy_published,
                                               company_name, vacancy_url,
                                               salary, address, snippet,
-                                              experience, employment))
+                                              experience, employment, schedule))
 
     def get_all_vacancies(self):
         """ Возвращает список объектов. """

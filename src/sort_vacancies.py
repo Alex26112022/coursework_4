@@ -1,5 +1,4 @@
 from src.list_vacancies import ListVacancies
-from config import vacancies_json
 
 
 class SortVacancies:
@@ -38,6 +37,14 @@ class SortVacancies:
         filter_list = []
         for vacancy in self.all_vacancies:
             if vacancy.employment == expected_employment:
+                filter_list.append(vacancy)
+        self.all_vacancies = filter_list
+
+    def filter_schedule(self, expected_schedule):
+        """ Фильтрует список по графику работы. """
+        filter_list = []
+        for vacancy in self.all_vacancies:
+            if vacancy.schedule == expected_schedule:
                 filter_list.append(vacancy)
         self.all_vacancies = filter_list
 
