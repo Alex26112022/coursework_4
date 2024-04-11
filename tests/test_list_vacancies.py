@@ -11,6 +11,6 @@ def test_list_vacancies():
     print(new_list.get_all_vacancies()[0])
     print(new_list.get_all_vacancies()[1])
     assert new_list.get_all_vacancies()[0].vacancy == 'Junior Python'
-    assert new_list.get_all_vacancies()[1].pay == 100000
+    assert new_list.get_all_vacancies()[1].pay_min == 100000
     assert new_list.get_all_vacancies()[1].pay_str == 'От 100000 до 200000 RUR'
 
