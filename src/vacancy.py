@@ -13,7 +13,8 @@ class Vacancy:
         self.published = published
         self.company = company
         self.url = url
-        self.pay, self.pay_str = self.validator_pay(pay, json_path)
+        self.pay_min, self.pay_max, self.pay_str = self.validator_pay(pay,
+                                                                      json_path)
         if address is None:
             self.address = 'не указан'
         else:
@@ -36,8 +37,17 @@ class Vacancy:
         """ Валидирует и форматирует данные по зарплате. """
         if pay is None:
             pay_min = 0
+            pay_max = 0
             pay_str_ = 'не указана'
         else:
+            if pay[1] is None:
+                pay_max = 0
+            else:
+                if pay[2] == 'RUR':
+                    pay_max = pay[1]
+                else:
+                    valuta = converter(json_path, pay[2])
+                    pay_max = pay[1] * valuta[1] / valuta[0]
             if pay[0] is None:
                 pay_min = 0
                 pay_str_ = f'до {pay[1]} {pay[2]}'
@@ -51,7 +61,7 @@ class Vacancy:
                     pay_str_ = f'От {pay[0]} до {pay[1]} {pay[2]}'
                 else:
                     pay_str_ = f'От {pay[0]} {pay[2]}'
-        return pay_min, pay_str_
+        return pay_min, pay_max, pay_str_
 
     def format_published(self):
         """ Преобразует строковую дату в datetime. """
@@ -59,7 +69,7 @@ class Vacancy:
 
     def __gt__(self, other):
         """ Метод сравнения объектов по зарплате. """
-        return self.pay > other.pay
+        return self.pay_min > other.pay_min
 
     def __str__(self):
         return (f'Id: {self.id_}\nВакансия: {self.vacancy}\n'

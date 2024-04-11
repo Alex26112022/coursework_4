@@ -42,10 +42,19 @@ class SortVacancies:
         self.all_vacancies = filter_list
 
     def filter_snippet(self, expected_snippet: str):
-        """ Фильтрует список требуемым навыкам. """
+        """ Фильтрует список по требуемым навыкам. """
         filter_list = []
         for vacancy in self.all_vacancies:
             if expected_snippet.lower() in vacancy.snippet.lower():
+                filter_list.append(vacancy)
+        self.all_vacancies = filter_list
+
+    def filter_pay(self, pay_min_=0, pay_max_=9999999):
+        """ Фильтрует список по зарплате. """
+        filter_list = []
+        for vacancy in self.all_vacancies:
+            if (pay_max_ >= vacancy.pay_min >= pay_min_ and vacancy.pay_max <=
+                    pay_max_):
                 filter_list.append(vacancy)
         self.all_vacancies = filter_list
 
@@ -57,10 +66,11 @@ class SortVacancies:
 fff = SortVacancies(vacancies_json)
 fff.sort_pay()
 # fff.sort_published()
-fff.filter_address('москва')
+# fff.filter_address('москва')
 # fff.filter_experience('От 3 до 6 лет')
-fff.filter_employment('Стажировка')
-fff.filter_snippet('sql')
+# fff.filter_employment('Стажировка')
+# fff.filter_snippet('sql')
+fff.filter_pay(30000, 80000)
 print(len(fff.get_sort_vacancies()))
 for el in fff.get_sort_vacancies():
     print(el)
