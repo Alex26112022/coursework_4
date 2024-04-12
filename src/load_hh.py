@@ -18,7 +18,7 @@ class HH(HhAbc):
         self.vacancies = []
         print('Ждите! Идет загрузка данных...')
 
-    def load_vacancies(self, keyword):
+    def load_vacancies(self, keyword: str):
         """ Загружает данные с сайта. """
         self.params['text'] = keyword
         while self.params.get('page') != 20:
@@ -33,7 +33,7 @@ class HH(HhAbc):
                     f"Request failed with status code: {response.status_code}")
             self.params['page'] += 1
 
-    def get_vacancies(self):
+    def get_vacancies(self) -> list:
         """ Возвращает список данных. """
         return self.vacancies
 

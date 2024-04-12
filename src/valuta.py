@@ -5,7 +5,7 @@ import requests
 from config import valuta_json
 
 
-def json_valuta(json_path):
+def json_valuta(json_path: str):
     """
     Получает актуальные данные о курсах валют с API Центробанка
     и записывает их в json-файл.
@@ -16,7 +16,7 @@ def json_valuta(json_path):
         json.dump(response, file, indent=4)
 
 
-def converter(json_path, money):
+def converter(json_path: str, money: str) -> tuple:
     """ Конвертирует валюту. """
     with open(json_path, encoding='utf-8') as file:
         data = json.load(file)

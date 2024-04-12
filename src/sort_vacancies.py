@@ -3,7 +3,7 @@ from src.list_vacancies import ListVacancies
 
 class SortVacancies:
     """ Класс сортировки и фильтрации вакансий. """
-    def __init__(self, json_path):
+    def __init__(self, json_path: str):
         new_list = ListVacancies(json_path)
         new_list.generate_vacancies()
         self.all_vacancies = new_list.get_all_vacancies()
@@ -24,7 +24,7 @@ class SortVacancies:
                 filter_list.append(vacancy)
         self.all_vacancies = filter_list
 
-    def filter_experience(self, expected_experience):
+    def filter_experience(self, expected_experience: str):
         """ Фильтрует список по опыту работы. """
         filter_list = []
         for vacancy in self.all_vacancies:
@@ -32,7 +32,7 @@ class SortVacancies:
                 filter_list.append(vacancy)
         self.all_vacancies = filter_list
 
-    def filter_employment(self, expected_employment):
+    def filter_employment(self, expected_employment: str):
         """ Фильтрует список по типу занятости. """
         filter_list = []
         for vacancy in self.all_vacancies:
@@ -40,7 +40,7 @@ class SortVacancies:
                 filter_list.append(vacancy)
         self.all_vacancies = filter_list
 
-    def filter_schedule(self, expected_schedule):
+    def filter_schedule(self, expected_schedule: str):
         """ Фильтрует список по графику работы. """
         filter_list = []
         for vacancy in self.all_vacancies:
@@ -65,6 +65,6 @@ class SortVacancies:
                 filter_list.append(vacancy)
         self.all_vacancies = filter_list
 
-    def get_sort_vacancies(self):
+    def get_sort_vacancies(self) -> list:
         """ Возвращает отсортированный список вакансий. """
         return self.all_vacancies
