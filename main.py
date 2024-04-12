@@ -1,14 +1,16 @@
 from config import vacancies_json
 from src.func import *
 from src.json_load import VacancyJson
+from src.push_excel import PushExcel
 from src.sort_vacancies import SortVacancies
 
 search_input = input('Введите поисковый запрос: \n')
-print('Задайте необходимые параметры и нажмите ENTER\n'
-      'Чтобы пропустить параметр оставьте поле пустым и нажмите ENTER')
 
 new_search = VacancyJson(search_input)
 new_search.load_json(vacancies_json)
+
+print('Задайте необходимые параметры и нажмите ENTER\n'
+      'Чтобы пропустить параметр оставьте поле пустым и нажмите ENTER')
 
 
 def main():
@@ -59,6 +61,9 @@ def main():
 
     for el in my_list:
         print(el)
+
+    new_excel_file = PushExcel(my_list)
+    new_excel_file.push_excel()
 
 
 if __name__ == '__main__':
