@@ -33,4 +33,4 @@ class PushExcel:
             row += 1
 
         book.save(vacancies_excel)
-        print('Данные сформированы в Excel-документ в папке "data"!')
+        print('Данные успешно сформированы в Excel-документ в папке "data"!')

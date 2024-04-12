@@ -38,7 +38,7 @@ class Vacancy:
             self.schedule = schedule
 
     @classmethod
-    def validator_pay(cls, pay, json_path):
+    def validator_pay(cls, pay: tuple | None, json_path) -> tuple:
         """ Валидирует и форматирует данные по зарплате. """
         if pay is None:
             pay_min = 0
@@ -68,12 +68,12 @@ class Vacancy:
                     pay_str_ = f'От {pay[0]} {pay[2]}'
         return pay_min, pay_max, pay_str_
 
-    def format_published(self):
+    def format_published(self) -> datetime:
         """ Преобразует строковую дату в datetime. """
         return datetime.strptime(self.published[0:-5], '%Y-%m-%dT%H:%M:%S')
 
-    def __gt__(self, other):
-        """ Метод сравнения объектов по зарплате. """
+    def __gt__(self, other) -> bool:
+        """ Метод сравнения объектов по минимальной зарплате. """
         return self.pay_min > other.pay_min
 
     def __str__(self):

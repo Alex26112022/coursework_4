@@ -4,7 +4,7 @@ from src.vacancy import Vacancy
 
 class ListVacancies:
     """ Класс-генератор объектов вакансий. """
-    def __init__(self, json_path):
+    def __init__(self, json_path: str):
         self.info = None
         self.json_path = json_path
         self.list_vacancies()
@@ -52,6 +52,6 @@ class ListVacancies:
                                               salary, address, snippet,
                                               experience, employment, schedule))
 
-    def get_all_vacancies(self):
+    def get_all_vacancies(self) -> list:
         """ Возвращает список объектов. """
         return self.all_vacancies

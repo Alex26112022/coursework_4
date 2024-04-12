@@ -6,6 +6,7 @@ from src.sort_vacancies import SortVacancies
 
 search_input = input('Введите поисковый запрос: \n')
 
+# Загружает данные в json.
 new_search = VacancyJson(search_input)
 new_search.load_json(vacancies_json)
 
@@ -14,6 +15,7 @@ print('Задайте необходимые параметры и нажмит�
 
 
 def main():
+    """ Главная функция. Забирает данные с json, работает с пользователем. """
     max_count_vacancies = max_vacancies()
     type_of_sort = sort_of_vacancies()
     address_input = input('Введите адрес поиска:\n')
@@ -62,6 +64,7 @@ def main():
     for el in my_list:
         print(el)
 
+    # Запись в Excel.
     new_excel_file = PushExcel(my_list)
     new_excel_file.push_excel()
 

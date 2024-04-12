@@ -9,7 +9,7 @@ class VacancyJson:
         self.vacancies = self.hh_load(search_vacancy)
 
     @staticmethod
-    def hh_load(search_vacancy):
+    def hh_load(search_vacancy: str) -> list:
         """ Парсит вакансии с сайта. """
         hh = HH()
         hh.load_vacancies(search_vacancy)
@@ -17,7 +17,7 @@ class VacancyJson:
         print(hh)
         return vacancies
 
-    def load_json(self, path_json):
+    def load_json(self, path_json: str):
         """ Записывает данные в Json-файл. """
         with open(path_json, 'w', encoding='utf-8') as file:
             json.dump(self.vacancies, file, indent=4)
