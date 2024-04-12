@@ -1,4 +1,5 @@
 import openpyxl
+from openpyxl.styles import Font
 
 from config import vacancies_excel
 from src.vacancy import Vacancy
@@ -15,7 +16,16 @@ class PushExcel:
         book = openpyxl.Workbook()
         book.remove(book.active)
         page = book.create_sheet('Вакансии')
-        row = 1
+
+        headers = ['ID', 'Вакансия', 'URL', 'Зарплата', 'Дата публикации',
+                   'Адрес', 'Компания', 'График работы', 'Тип занятости',
+                   'Опыт работы', 'Требования']
+
+        for count, el in enumerate(headers):
+            item = page.cell(row=1, column=count+1, value=el)
+            item.font = Font(bold=True)
+
+        row = 2
         column = 1
 
         for item in self.list_vacancies:
