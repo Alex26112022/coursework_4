@@ -1,7 +1,7 @@
 import pytest
 
 from config import vacancies_json_test
-from src.json_load import VacancyJson
+from src.json_worker import VacancyJson
 
 new_list = [
     {
@@ -38,7 +38,13 @@ new_list = [
     }
 ]
 
+add_list = [{"id": "11", "name": "test1"}, {"id": "12", "name": "test2"}]
 
-def test_json_load():
+
+def test_json_worker():
+    """ Тестирует класс работы с файлом json. """
     new_vac = VacancyJson(new_list, vacancies_json_test)
     new_vac.load_json()
+    new_vac.read_json()
+    new_vac.add_json(add_list)
+    new_vac.del_json("id", "11")

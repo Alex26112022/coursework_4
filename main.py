@@ -1,6 +1,6 @@
 from config import vacancies_json
 from src.func import *
-from src.json_load import VacancyJson
+from src.json_worker import VacancyJson
 from src.load_hh import HH
 from src.push_excel import PushExcel
 from src.sort_vacancies import SortVacancies

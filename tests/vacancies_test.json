@@ -50,5 +50,9 @@
         },
         "alternate_url": "https://hh.ru/vacancy/94450348",
         "published_at": "2024-03-04T13:09:44+0300"
+    },
+    {
+        "id": "12",
+        "name": "test2"
     }
 ]
