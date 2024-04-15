@@ -2,8 +2,6 @@ import json
 
 import requests
 
-from config import valuta_json
-
 
 def json_valuta(json_path: str):
     """

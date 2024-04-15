@@ -1,7 +1,6 @@
-import pytest
-import os
 from io import StringIO
-from src.func import *
+from src.func import (max_vacancies, sort_of_vacancies, experience_input,
+                      employment_input, schedule_input, pay_input)
 
 
 def test_max_vacancies(monkeypatch):
