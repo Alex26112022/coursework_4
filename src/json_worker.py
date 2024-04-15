@@ -40,13 +40,14 @@ class VacancyJson(VacancyJsonAbc):
         print('Данные успешно добавлены!')
 
     def del_json(self, key_input: str, value_input: str):
-        """ Удаляет словарь из json по id. """
+        """ Удаляет словарь из json. """
         try:
             with open(self.path_json, encoding='utf-8') as file:
                 data = json.load(file)
                 for num_, el in enumerate(data):
                     if value_input == el.get(key_input):
                         data.pop(num_)
+                        print('Вакансия удалена!')
 
             with open(self.path_json, 'w', encoding='utf-8') as file:
                 json.dump(data, file, ensure_ascii=False, indent=4)
