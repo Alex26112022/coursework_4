@@ -3,6 +3,7 @@ from src.list_vacancies import ListVacancies
 
 class SortVacancies:
     """ Класс сортировки и фильтрации вакансий. """
+
     def __init__(self, json_path: str):
         new_list = ListVacancies(json_path)
         new_list.generate_vacancies()
@@ -14,7 +15,8 @@ class SortVacancies:
 
     def sort_published(self):
         """ Сортирует вакансии по дате публикации. """
-        self.all_vacancies.sort(key=lambda x: x.format_published(), reverse=True)
+        self.all_vacancies.sort(key=lambda x: x.format_published(),
+                                reverse=True)
 
     def filter_address(self, expected_address: str):
         """ Фильтрует список по названию города. """

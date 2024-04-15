@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 
 class HhAbc(ABC):
     """ Абстрактный метод класса HH. """
+
     @abstractmethod
     def __init__(self):
         pass
@@ -14,4 +15,3 @@ class HhAbc(ABC):
     @abstractmethod
     def get_vacancies(self):
         pass
-

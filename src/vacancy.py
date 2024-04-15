@@ -5,6 +5,9 @@ from datetime import datetime
 
 class Vacancy:
     """ Класс экземпляра вакансии. """
+    __slots__ = ['id_', 'vacancy', 'published', 'company', 'url', 'pay',
+                 'address', 'snippet', 'experience', 'employment', 'schedule',
+                 'json_path', 'pay_min', 'pay_max', 'pay_str']
 
     def __init__(self, id_, vacancy, published, company, url, pay, address,
                  snippet, experience, employment,
