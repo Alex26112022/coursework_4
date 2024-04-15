@@ -1,14 +1,19 @@
 from config import vacancies_json
 from src.func import *
 from src.json_load import VacancyJson
+from src.load_hh import HH
 from src.push_excel import PushExcel
 from src.sort_vacancies import SortVacancies
 
 search_input = input('Введите поисковый запрос: \n')
+# Парсим данные
+new_search = HH()
+new_search.load_vacancies(search_input)
+print(new_search)
+# Загружаем данные в json.
+new_info = VacancyJson(new_search.get_vacancies(), vacancies_json)
+new_info.load_json()
 
-# Загружает данные в json.
-new_search = VacancyJson(search_input)
-new_search.load_json(vacancies_json)
 
 print('Задайте необходимые параметры и нажмите ENTER\n'
       'Чтобы пропустить параметр оставьте поле пустым и нажмите ENTER')

@@ -1,6 +1,4 @@
 import requests
-from random import randint
-import time
 import json
 
 from src.hh_abc import HhAbc
@@ -12,7 +10,7 @@ class HH(HhAbc):
     """
 
     def __init__(self):
-        self.url = 'https://api.hh.ru/vacancies'
+        self.__url = 'https://api.hh.ru/vacancies'
         self.headers = {'User-Agent': 'HH-User-Agent'}
         self.params = {'text': '', 'page': 0, 'per_page': 100}
         self.vacancies = []
@@ -22,8 +20,7 @@ class HH(HhAbc):
         """ Загружает данные с сайта. """
         self.params['text'] = keyword
         while self.params.get('page') != 20:
-            # time.sleep(randint(1, 4))
-            response = requests.get(self.url, headers=self.headers,
+            response = requests.get(self.__url, headers=self.headers,
                                     params=self.params)
             if response.status_code == 200:
                 vacancies = response.json().get("items", [])
