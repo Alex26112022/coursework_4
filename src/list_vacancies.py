@@ -4,6 +4,7 @@ from src.vacancy import Vacancy
 
 class ListVacancies:
     """ Класс-генератор объектов вакансий. """
+
     def __init__(self, json_path: str):
         self.info = None
         self.json_path = json_path
@@ -26,7 +27,8 @@ class ListVacancies:
             company_name = vacancy.get("employer", {}).get("name")
             salary = vacancy.get("salary", {})
             if salary is not None:
-                salary = salary.get("from"), salary.get('to'), salary.get("currency")
+                salary = salary.get("from"), salary.get('to'), salary.get(
+                    "currency")
             address = vacancy.get("address")
             if address is not None:
                 address = address.get("city")
@@ -50,7 +52,8 @@ class ListVacancies:
                                               vacancy_published,
                                               company_name, vacancy_url,
                                               salary, address, snippet,
-                                              experience, employment, schedule))
+                                              experience, employment,
+                                              schedule))
 
     def get_all_vacancies(self) -> list:
         """ Возвращает список объектов. """

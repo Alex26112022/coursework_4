@@ -1,4 +1,3 @@
-import pytest
 import requests
 
 from src.load_hh import HH
@@ -6,6 +5,7 @@ from src.load_hh import HH
 
 def test_hh(monkeypatch):
     """ Проверка парсера. """
+
     class MockResponse:
         def __init__(self):
             self.status_code = 200

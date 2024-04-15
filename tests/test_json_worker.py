@@ -1,5 +1,3 @@
-import pytest
-
 from config import vacancies_json_test
 from src.json_worker import VacancyJson
 

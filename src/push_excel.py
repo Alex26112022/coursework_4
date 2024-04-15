@@ -22,7 +22,7 @@ class PushExcel:
                    'Опыт работы', 'Требования']
 
         for count, el in enumerate(headers):
-            item = page.cell(row=1, column=count+1, value=el)
+            item = page.cell(row=1, column=count + 1, value=el)
             item.font = Font(bold=True)
 
         row = 2

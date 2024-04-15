@@ -1,5 +1,4 @@
 import json
-from src.load_hh import HH
 from src.vacancy_json_abc import VacancyJsonAbc
 
 

@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 
 class VacancyJsonAbc(ABC):
     """ Абстрактный класс работы с файлом json. """
+
     @abstractmethod
     def __init__(self):
         pass

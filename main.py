@@ -1,5 +1,6 @@
 from config import vacancies_json
-from src.func import *
+from src.func import pay_input, schedule_input, employment_input, \
+    experience_input, sort_of_vacancies, max_vacancies
 from src.json_worker import VacancyJson
 from src.load_hh import HH
 from src.push_excel import PushExcel
@@ -13,7 +14,6 @@ print(new_search)
 # Загружаем данные в json.
 new_info = VacancyJson(new_search.get_vacancies(), vacancies_json)
 new_info.load_json()
-
 
 print('Задайте необходимые параметры и нажмите ENTER\n'
       'Чтобы пропустить параметр оставьте поле пустым и нажмите ENTER')

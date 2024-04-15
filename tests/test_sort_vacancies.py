@@ -1,5 +1,3 @@
-import pytest
-
 from config import all_vacancies_json_test
 from src.sort_vacancies import SortVacancies
 
